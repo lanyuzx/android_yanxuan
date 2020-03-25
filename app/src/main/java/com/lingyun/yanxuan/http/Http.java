@@ -6,12 +6,8 @@ import com.lingyun.yanxuan.utils.LogUtil;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -21,7 +17,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class WeiBoHttp {
+public class Http {
 
 
     private static HttpLoggingInterceptor loggingInterceptor() {
@@ -68,7 +64,7 @@ public class WeiBoHttp {
 
     private static Retrofit mRetrofit = new Retrofit.Builder()
             .client(client)
-            .baseUrl(WeiBoApi.baseUrl)//基础URL 建议以 / 结尾
+            .baseUrl(HttpApi.baseUrl)//基础URL 建议以 / 结尾
             .addConverterFactory(GsonConverterFactory.create(gson))//设置 Json 转换器
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//RxJava 适配器
             .build();
