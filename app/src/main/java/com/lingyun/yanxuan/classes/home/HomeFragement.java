@@ -1,8 +1,4 @@
 package com.lingyun.yanxuan.classes.home;
-
-import android.widget.EditText;
-import android.widget.TextView;
-
 import com.lingyun.yanxuan.R;
 import com.lingyun.yanxuan.base.BaseBean;
 import com.lingyun.yanxuan.base.BaseFragement;
@@ -10,8 +6,6 @@ import com.lingyun.yanxuan.classes.home.bean.HomeBean;
 import com.lingyun.yanxuan.http.Http;
 import com.lingyun.yanxuan.utils.LogUtil;
 
-import androidx.appcompat.widget.SearchView;
-import butterknife.BindView;
 import io.reactivex.functions.Consumer;
 
 public class HomeFragement  extends BaseFragement {
