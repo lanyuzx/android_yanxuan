@@ -2,12 +2,18 @@ package com.lingyun.yanxuan.http;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.lingyun.yanxuan.base.BaseBean;
+import com.lingyun.yanxuan.classes.home.bean.HomeBean;
 import com.lingyun.yanxuan.utils.LogUtil;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -25,9 +31,10 @@ public class Http {
             @Override
             public void log(String message) {
                 try {
+                    message  = message.replaceAll("%(?![0-9a-fA-F]{2})", "%25");
                     String text = URLDecoder.decode(message, "utf-8");
                     LogUtil.e("OKHttp-----", text);
-                } catch (UnsupportedEncodingException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     LogUtil.e("OKHttp-----", message);
                 }
@@ -70,6 +77,13 @@ public class Http {
             .build();
 
 
+     public static Observable<BaseBean<HomeBean>> homeIndex() {
+         return mRetrofit.create(HttpApi.class)
+                 .homeIndex()
+                 .subscribeOn(Schedulers.io())
+                 .compose(ResponseTransformer.handleResult())
+                 .observeOn(AndroidSchedulers.mainThread());
+    }
 
 
 }

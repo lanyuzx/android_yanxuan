@@ -1,6 +1,9 @@
 package com.lingyun.yanxuan.http;
 
 
+import com.lingyun.yanxuan.base.BaseBean;
+import com.lingyun.yanxuan.classes.home.bean.HomeBean;
+
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -13,8 +16,8 @@ public interface HttpApi {
     public final String baseUrl = "https://miniapp.you.163.com/xhr/";
     public final String baseUserUrl = "https://m.you.163.com/pin/min/";
 
-    @GET("2/statuses/home_timeline.json")
-    Observable<Response<Object>> homeTimeLine(@QueryMap Map<String,Object> map);
+    @GET("index/index.json")
+    Observable<Response<BaseBean<HomeBean>>>  homeIndex();
 
 }
 
