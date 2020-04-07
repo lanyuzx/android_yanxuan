@@ -13,6 +13,7 @@
             android:layout_height="match_parent">
 
            <LinearLayout
+               android:id="@+id/home_searchbg_view"
                android:orientation="vertical"
                android:background="@color/AppColor"
                android:layout_width="match_parent"
@@ -90,10 +91,17 @@
            </LinearLayout>
 
             <com.youth.banner.Banner
+                android:background="@color/AppColor"
                 android:id="@+id/home_banner_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/qb_px_150"/>
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_grid_recyclerView"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/qb_px_140"/>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
