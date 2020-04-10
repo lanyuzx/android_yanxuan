@@ -1,5 +1,6 @@
 package com.lingyun.yanxuan.classes.home.adpater;
 
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -8,13 +9,15 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.lingyun.yanxuan.R;
 import com.lingyun.yanxuan.classes.home.bean.HomeBean;
+import com.lingyun.yanxuan.utils.LogUtil;
 
 import java.util.List;
 
 import androidx.annotation.Nullable;
 
 public class HomeGridAdapter extends BaseQuickAdapter<HomeBean.HomeKingKongAreaV4Bean, BaseViewHolder> {
-    public HomeGridAdapter( @Nullable List<HomeBean.HomeKingKongAreaV4Bean> data) {
+
+    public HomeGridAdapter(@Nullable List<HomeBean.HomeKingKongAreaV4Bean> data) {
         super(R.layout.layout_home_grid, data);
     }
 

@@ -1,11 +1,15 @@
 package com.lingyun.yanxuan.classes.home;
 import android.content.Context;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Rect;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
 import com.lingyun.yanxuan.R;
+import com.lingyun.yanxuan.base.BaseApp;
 import com.lingyun.yanxuan.base.BaseBean;
 import com.lingyun.yanxuan.base.BaseFragement;
 import com.lingyun.yanxuan.classes.home.adpater.HomeGridAdapter;
@@ -21,6 +25,7 @@ import com.youth.banner.loader.ImageLoader;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +59,7 @@ public class HomeFragement  extends BaseFragement {
                if (homeBean.getCode() == 200) {
                    mHomeBean = homeBean.getData();
                    setupBannerData();
+                   mGridAdapter.addData(mHomeBean.getKingKongAreaV4());
                    mGridAdapter.addData(mHomeBean.getKingKongAreaV4());
                }
             }
@@ -113,9 +119,11 @@ public class HomeFragement  extends BaseFragement {
 
     private void setupGridView() {
         mGridAdapter = new HomeGridAdapter(null);
-        mGridRecyclerView.setLayoutManager(new GridLayoutManager(mContext,6,GridLayoutManager.VERTICAL,false));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext,2,RecyclerView.HORIZONTAL,false);
+        mGridRecyclerView.setLayoutManager(gridLayoutManager);
         mGridRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mGridRecyclerView.setAdapter(mGridAdapter);
+
     }
     private void setupBannerData() {
         List bannerUrls = new ArrayList();

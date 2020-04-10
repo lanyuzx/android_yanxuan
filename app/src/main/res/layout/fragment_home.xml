@@ -97,10 +97,10 @@
                 android:layout_height="@dimen/qb_px_150"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home_grid_recyclerView"
                 android:orientation="horizontal"
+                android:id="@+id/home_grid_recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/qb_px_140"/>
+                android:layout_height="@dimen/qb_px_160"/>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>

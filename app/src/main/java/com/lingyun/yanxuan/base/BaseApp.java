@@ -2,6 +2,8 @@ package com.lingyun.yanxuan.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
 import com.lingyun.yanxuan.R;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -14,10 +16,17 @@ import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 
 public class BaseApp extends Application {
+    public  static  int AppWidth = 0;
+    public  static  int AppHeight = 0;
     @Override
     public void onCreate() {
         super.onCreate();
-//        WbSdk.install(this,new AuthInfo(this, Constants.APP_KEY, Constants.REDIRECT_URL, Constants.SCOPE));
+        DisplayMetrics metric = new DisplayMetrics();
+        WindowManager mWindowManager = (WindowManager) this.getSystemService(getApplicationContext().WINDOW_SERVICE);
+        mWindowManager.getDefaultDisplay().getMetrics(metric);
+        AppWidth = metric.widthPixels; // 屏幕宽度（像素）
+        AppHeight = metric.heightPixels; // 屏幕宽度（像素）
+
     }
 
     static  {

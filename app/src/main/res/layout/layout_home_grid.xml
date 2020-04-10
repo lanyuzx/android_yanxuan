@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="@dimen/qb_px_80"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
     <ImageView
         android:layout_gravity="center"
         android:id="@+id/home_grid_image_view"
-        android:layout_width="@dimen/qb_px_40"
-        android:layout_height="@dimen/qb_px_40"/>
+        android:layout_width="@dimen/qb_px_50"
+        android:layout_height="@dimen/qb_px_50"/>
     <TextView
         android:id="@+id/home_grid_image_text_view"
         android:textSize="@dimen/qb_px_10"
